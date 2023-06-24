@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Site.Views.ViewModels.DrsViewModel>
+
+@{
+    ViewBag.Title = "لیست پزشکان";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink("ثبت پزشک جدید", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DrExpertise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Family)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phonenumber)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActiv)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrExpertise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Family)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phonenumber)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActiv)
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.DrsId }) |
+                @Html.ActionLink("مشاهده", "Details", new { id = item.DrsId }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.DrsId })
+            </td>
+        </tr>
+    }
+
+</table>

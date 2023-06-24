@@ -1,0 +1,38 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | سایت</title>
+
+    @Styles.Render("~/Content/Css")
+    <link href="~/Content/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datepicker.min.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="rtl">
+    @Scripts.Render("~/Scripts/js")
+
+    @Html.Partial("_Pnav")
+    <div>
+        @RenderBody()
+    </div>
+
+
+    @Scripts.Render("bundles/jquery")
+    @Scripts.Render("bundles/bootstrap")
+    <Script src="~/Scripts/bootstrapjalaliDataPicker/bootstrap-datepicker.min.js"></Script>
+    <Script src="~/Scripts/bootstrapjalaliDataPicker/bootstrap-datepicker.fa.min.js"></Script>
+    @RenderSection("Scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type=datetime]').datepicker({ dateFormat: "yy/mm/dd", isRtl: true, ShowButtonPanel: true });
+        });
+    </script>
+
+
+
+
+</body>
+</html>
